@@ -159,7 +159,9 @@
             "祝你身体健康，身材越来越好(≧∇≦)",
             "祝你少生气，多多开心(⁎⁍̴̛ᴗ⁍̴̛⁎)",
             "祝你事事顺意，好运连连！(≧∇≦)",
-            "祝你瑜伽课效果越来越明显！(●°u°●)"
+            "祝你瑜伽课效果越来越明显！(●°u°●)",
+            "希望妈妈多爱自己一点，别太累啦(´｡• ᵕ •｡`) ♡",
+            "无论几岁，妈妈都是最美的女神！(๑•̀ㅂ•́)و✧"
         ];
 
         let activePopups = [];
@@ -200,6 +202,9 @@
             const btnCenterX = btnRect.left + btnRect.width / 2;
             const btnCenterY = btnRect.top + btnRect.height / 2;
 
+            const popupCount = activePopups.length;
+            const lastPopupRemoveTime = popupCount > 0 ? (popupCount - 1) * 50 + 100 : 0;
+
             activePopups.forEach((popup, index) => {
                 setTimeout(() => {
                     const popupRect = popup.getBoundingClientRect();
@@ -214,7 +219,7 @@
 
                     setTimeout(() => {
                         popup.remove();
-                    }, 800);
+                    }, 100);
                 }, index * 50);
             });
 
@@ -246,9 +251,9 @@
                     }, 500);
                 }, 2000);
 
-                setTimeout(startPopupInterval, 1000);
+                setTimeout(startPopupInterval, 3000);
 
-            }, 1000);
+            }, lastPopupRemoveTime + 200);
         }
 
         startPopupInterval();
